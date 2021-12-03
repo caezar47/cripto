@@ -1,0 +1,31 @@
+{% if view == "base" %}
+	<div class="{{prefix}}block">
+		<div class="{{prefix}}header  {{content_prefix}}header">
+			<{{heading_tag}} class="{{prefix}}heading  {{content_prefix}}heading">{{heading}}</{{heading_tag}}>
+		</div>
+		<div class="{{prefix}}row">
+			{% for card in card_list %}
+			<div class="{{prefix}}card  trend--{{card.trend}}">
+				<div class="{{prefix}}card__header">
+					<div class="{{prefix}}card__convert">
+						<span>{{card.before}}</span>
+						<button type="button" class="{{prefix}}card__convert__btn">
+							{% include "../svg-sprite/svg.twig" with {icon:'convert'} %}
+						</button>
+						<span>{{card.after}}</span>
+					</div>
+
+					<p class="{{prefix}}card__percent">
+						{% include "../svg-sprite/svg.twig" with {icon:'trend'} %}
+						<span>{{card.percent}}</span>
+					</p>
+				</div>
+				<p class="{{prefix}}card__val">{{card.val}}</p>
+				<div class="{{prefix}}card__trend">
+					<img src="{{card.img}}" class="img-responsive" alt="">
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}

@@ -1,0 +1,146 @@
+.header__{
+	@primary: #5B5A99;
+	&block{
+		margin-bottom: 30px;
+		.media-breakpoint-up(@md; {
+			margin-bottom: 45px;
+		});
+		.media-breakpoint-up(@xl; {
+			margin-bottom: 25px;
+		});
+	}
+	&row{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+		.flex--gap &{
+			gap: 35px;
+		}
+	}
+	&col{
+		&__left{
+
+		}
+		&__right{
+			display: flex;
+			align-items: center;
+			flex: 1 1 auto;
+			order: -1;
+			justify-content: space-between;
+			.flex--gap &{
+				gap: 20px;
+			}
+			.media-breakpoint-up(@md; {
+				flex: initial;
+				order: initial;
+				justify-content: flex-end;
+				.flex--gap &{
+					gap: 25px;
+				}
+			});
+		}
+	}
+	&heading{
+		color: fadeout(@white, 10%);
+		margin-bottom: 5px;
+	}
+	&note{
+		color: @primary;
+		.font(0.722rem, 125%); // 13px/16px
+	}
+	&profile{
+		display: flex;
+		align-items: center;
+		font-weight: 900;
+		.font(0.722rem, 125%); // 13px/16px
+		color: @primary;
+		margin-left: auto;
+		max-width: 170px;
+		flex: 1 1 auto;
+		&__avatar{
+			width: 28px;
+			height: 28px;
+			border-radius: 3px;
+			overflow: hidden;
+			img{
+				.img-bg();
+			}
+		}
+		span{
+			margin-left: 15px;
+			flex: 1 1 auto;
+		}
+		svg{
+			width: 9px;
+			height: 6px;
+			margin-left: 7px;
+		}
+		.media-breakpoint-up(@md; {
+			margin-left: 25px;
+			.flex--gap &{
+				margin-left: 0px;
+			}
+			max-width: initial;
+			flex: initial;
+		});
+		.media-breakpoint-between(@md; @xl; {
+			span{display: none;}
+			svg{display: none;}
+		});
+	}
+	&notifi{
+		&__badge{
+			display: flex;
+			align-items: center;
+			color: @white;
+			font-weight: 900;
+			.font(0.667rem, 130%); // 12px/15px
+			background: linear-gradient(136.67deg, #FF409A 8.34%, #C438EF 95.26%);
+			opacity: 0.8;
+			box-shadow: 0px 4px 31px #BA1358;
+			border-radius: 14px;
+			padding: 7px 10px;
+			&:hover{
+				color: @white;
+				box-shadow: 0px 4px 15px #BA1358;
+			}
+			svg{
+				width: 10px;
+				height: 12px;
+				margin-right: 5px;
+			}
+		}
+	}
+	&hamb{
+		.btn-clearfix();
+		color: @primary;
+		width: 32px;
+		height: 32px;
+		.media-breakpoint-up(@md; {
+			margin-right: 38px;
+			.flex--gap &{
+				margin-right: 13px;
+			}
+		});
+		&:hover{
+			color: @success;
+		}
+	}
+	&search{
+		color: @primary;
+		width: 32px;
+		height: 32px;
+		display: none;
+		&:hover{
+			color: @success;
+		}
+		.media-breakpoint-up(@md; {
+			display: block;
+			margin-right: 25px;
+			.flex--gap &{
+				margin-right: 0px;
+			}
+		});
+	}
+}

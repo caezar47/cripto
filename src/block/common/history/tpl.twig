@@ -1,0 +1,26 @@
+{% if view == "base" %}
+	<div class="{{prefix}}block">
+		<div class="{{prefix}}header  {{content_prefix}}header">
+			<{{heading_tag}} class="{{prefix}}heading  {{content_prefix}}heading">{{heading}}</{{heading_tag}}>
+			<a href="#" class="{{prefix}}more  {{content_prefix}}more">{{link}}</a>
+		</div>
+		<div class="{{prefix}}row">
+			{% for card in card_list %}
+			<div class="{{prefix}}card  trend--{{card.trend}}">
+				<div class="{{prefix}}card__icon">
+					{% include "../svg-sprite/svg.twig" with {icon:card.icon} %}
+				</div>
+				<div class="{{prefix}}card__group">
+					<p class="{{prefix}}card__name">{{card.name}}</p>
+					<p class="{{prefix}}card__percent">
+						<span>{{card.percent}}</span>
+					</p>
+					<time class="{{prefix}}card__date" datetime="{{card.date_iso}}">
+						<span>{{card.date}}</span>
+					</time>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}

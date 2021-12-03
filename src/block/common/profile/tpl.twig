@@ -1,0 +1,25 @@
+{% if view == "navbar" %}
+<div class="dropdown">
+	<a class="{{prefix}}avatar" href="#" data-toggle="dropdown">
+		<img src="{{avatar}}" class="img-responsive" alt="">		
+	</a>
+	<div class="{{prefix}}menu dropdown-menu">			
+		<ul class="{{prefix}}menu-list">
+			<li class="{{prefix}}menu-item  is--heading">
+				<p><b>{{name}}</b></p>
+				<p>{{contacts}}</p>	
+			</li>
+			{% for nav in nav %}
+			<li class="{{prefix}}menu-item">
+				<a href="{{nav.link}}" class="{{prefix}}menu-link">{{nav.name}}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>  
+{% endif %}
+{% if view == "avatar" %}
+<a class="{{prefix}}avatar" href="{{link}}">
+	<img src="{{avatar}}" class="img-responsive" alt="">		
+</a>
+{% endif %}

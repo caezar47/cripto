@@ -1,0 +1,17 @@
+.container {
+} 
+.grid__{
+	&row{
+		display: grid;
+		grid-gap: 30px;		
+	}
+}
+.flex__{
+	&row{
+		display: flex;
+		flex-wrap: wrap;
+		.flexbox-gap &{
+			gap: 10px 15px;	
+		}
+	}
+}

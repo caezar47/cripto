@@ -1,0 +1,48 @@
+<nav class="{{navbar_prefix}}block">
+	<div class="{{navbar_prefix}}inner">
+		<a class="{{navbar_prefix}}logotip  is--logotip" href="{{page.index}}">
+			<img src="{{path.img}}/navbar/logotip.svg" alt="">
+		</a>
+		<ul class="{{navbar_prefix}}nav">
+			{% set navbar = [
+				{
+					name:	"Dashboard", 
+					link:	page.index, 
+					icon:	'dashboard', 
+				},
+				{
+					name:	"Wallet", 
+					link:	'#', 
+					icon:	'wallet', 
+				},
+				{
+					name:	"Messages", 
+					link:	'#', 
+					icon:	'messages', 
+					mod:	'notife',
+				},
+				{
+					name:	"Trade", 
+					link:	'#', 
+					icon:	'trade', 
+				},
+				{
+					name:	"Account Setting", 
+					link:	'#', 
+					icon:	'account', 
+				},
+			] %}
+		    {% for value in navbar %}
+			<li class="{{navbar_prefix}}nav__item">
+				<a href="{{value.link}}" class="{{navbar_prefix}}nav__link  {% if value.link == active %}{{navbar_prefix}}nav__link--active{% endif %}  {% if value.mod %} {{navbar_prefix}}nav__link--{{value.mod}} {% endif %}">
+					{% include "../svg-sprite/svg.twig" with {icon:value.icon} %}
+					<span>{{value.name}}</span>
+				</a>
+			</li>
+		    {% endfor %}
+		</ul>
+	</div>	
+	<button type="button" class="{{navbar_prefix}}hamb" data-hamburger-close>
+		{% include "../svg-sprite/svg.twig" with {icon:'hamb-close'} %}
+	</button>
+</nav>

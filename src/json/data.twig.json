@@ -1,0 +1,42 @@
+{
+	"contacts":{
+		"name":"Free Crypto Dashboard - RecehTok Dark",
+		"domain":"Free Crypto Dashboard - RecehTok Dark",
+		"domain_link":"#",
+		"color":"#F24F00"
+	},
+	"soc":{
+		"vk":"https://vk.com/",
+		"fb":"https://www.facebook.com/",
+		"ok":"https://ok.ru/group/",
+		"tw":"https://twitter.com/",
+		"inst":"https://www.instagram.com/"
+	},
+	"page":{
+		"index":"./"
+	},
+	"prefix":{
+		"header":"header__",
+		"wallet":"wallet__",
+		"graph":"graph__",
+		"trend":"trend__",
+		"history":"history__",
+		"navbar":"navbar__",
+		"popup":"popup__",
+		"page":"page__"
+	},	
+	"path":{		                  
+		"css":"./css",
+		"img":"./img",
+		"video":"./video",
+		"js":"./js",
+		"favicon":"./favicon",
+		"docs":"./docs"
+	},                       
+	"url-path-css":"./css",
+	"url-path-img":"./img",
+	"url-path-js":"./js",
+	"url-path-plugins":"./plugins",
+	"url-path-favicon":"./favicon",
+	"url-path-docs":"./docs"
+}

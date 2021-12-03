@@ -1,0 +1,31 @@
+{% if view == "base" %}
+	<header class="{{prefix}}block">
+		<div class="{{prefix}}row">
+			<div class="{{prefix}}col__left">
+				<{{heading_tag}} class="{{prefix}}heading">{{heading}}</{{heading_tag}}>
+				<div class="{{prefix}}note">{{note}}</div>
+			</div>
+			<div class="{{prefix}}col__right">
+				<a href="#" class="{{prefix}}search">
+					{% include "../svg-sprite/svg.twig" with {icon:'search'} %}
+				</a>
+				<button type="button" class="{{prefix}}hamb" data-hamburger>
+					{% include "../svg-sprite/svg.twig" with {icon:'hamb'} %}
+				</button>
+				<div class="{{prefix}}notifi">
+					<a href="#" class="{{prefix}}notifi__badge">
+						{% include "../svg-sprite/svg.twig" with {icon:'bell'} %}
+						<span>15</span>
+					</a>
+				</div>
+				<a href="#" class="{{prefix}}profile">
+					<div class="{{prefix}}profile__avatar">
+						<img src="https://caezar47.github.io/img/default/logotip.jpg" class="img-responsive" alt="">
+					</div>
+					<span>Pixelz Warrios</span>
+					{% include "../svg-sprite/svg.twig" with {icon:'arrow-down'} %}
+				</a>
+			</div>
+		</div>
+	</header>
+{% endif %} 

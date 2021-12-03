@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ru-RU" class="navbar--open"> 
+	<head>	
+    	{% include "../block/common/head/head.twig" with {title:"Dashboard"}  %}
+	</head>
+	<body>
+        {% include "../block/common/navbar/navbar.twig" with {
+            navbar_prefix:  prefix.navbar, 
+            active:         page.index,
+        } %} 
+
+        <main class="{{prefix.page}}wrap">
+            <div class="{{prefix.page}}container container">
+                {% include "../block/common/header/tpl.twig" with {
+                    view:               "base", 
+              
+                    prefix:             prefix.header, 
+                    mod:                "", 
+
+                    heading:            "Dashboard",
+                    heading_tag:        "h1", 
+                    note:               'With all of&nbsp;the styling tool options available in&nbsp;today’s market',
+                } %}
+                {% include "../block/common/wallet/tpl.twig" with {
+                    view:               "base", 
+              
+                    content_prefix:     prefix.page, 
+                    prefix:             prefix.wallet, 
+                    mod:                "", 
+
+                    heading:            "Wallets",
+                    heading_tag:        "h3", 
+
+                    card_list:[
+                        {  
+                            name:       'BTC',
+                            icon:       'bitcoin',
+                            val:        '1.9678',
+                            percent:    '+12,5%',
+                            trend:      'up',
+                        },
+                        {  
+                            name:       'ETH',
+                            icon:       'eth',
+                            val:        '23.234',
+                            percent:    '-5.23%',
+                            trend:      'down',
+                        },
+                        {  
+                            name:       'LTC',
+                            icon:       'litecoin',
+                            val:        '380.234',
+                            percent:    '+39.69%',
+                            trend:      'up', 
+                        },
+                    ],
+                } %}
+                {% include "../block/common/graph/tpl.twig" with {
+                    view:               "base", 
+              
+                    content_prefix:     prefix.page, 
+                    prefix:             prefix.graph, 
+                    
+                    img:                [path.img,"/graph/graph.png"].join(""), 
+                    img_md:             [path.img,"/graph/graph-md.png"].join(""), 
+                    img_xs:             [path.img,"/graph/graph-xs.png"].join(""), 
+                } %}
+                <div class="{{prefix.page}}grid">
+                    {% include "../block/common/trend/tpl.twig" with {
+                        view:               "base", 
+                  
+                        content_prefix:     prefix.page, 
+                        prefix:             prefix.trend, 
+                        mod:                "", 
+
+                        heading:            "Trend",
+                        heading_tag:        "h3", 
+
+                        card_list:[
+                            {     
+                                before:     'BTC',
+                                after:      'USD',
+                                val:        '7.356,67',
+                                percent:    '-5.23%',
+                                trend:      'down',
+                                img:        [path.img,"/trend/item1.svg"].join(""), 
+                            },
+                            {  
+                                before:     'ETH',
+                                after:      'USD',
+                                val:        '465,22',
+                                percent:    '+132%',
+                                trend:      'up',
+                                img:        [path.img,"/trend/item2.svg"].join(""), 
+                            },
+                            {  
+                                before:     'LTC',
+                                after:      'USD',
+                                val:        '104,23',
+                                percent:    '+75.69%',
+                                trend:      'up',
+                                img:        [path.img,"/trend/item3.svg"].join(""), 
+                            },
+                            {  
+                                before:     'BTC',
+                                after:      'IDR',
+                                val:        '107.543,234',
+                                percent:    '+132%',
+                                trend:      'up',
+                                img:        [path.img,"/trend/item4.svg"].join(""), 
+                            },
+                        ],
+                    } %}
+                    {% include "../block/common/history/tpl.twig" with {
+                        view:               "base", 
+                  
+                        content_prefix:     prefix.page, 
+                        prefix:             prefix.history, 
+                        mod:                "", 
+
+                        heading:            "History",
+                        heading_tag:        "h3", 
+
+                        link:               "See All",
+
+                        card_list:[
+                            {  
+                                name:       'Akhirnya Joko bayar Utang',
+                                icon:       'bitcoin',
+                                date:       '08/26/2018',
+                                date:       '2018.08.26',
+                                percent:    '+0.025',
+                                trend:      'up',
+                            },
+                            {  
+                                name:       'Cicilan mobil',
+                                icon:       'eth',
+                                date:       '08/26/2018',
+                                date:       '2018.08.26',
+                                percent:    '-5.23%',
+                                trend:      'down',
+                            },
+                            {  
+                                name:       'Buat beli susu anak',
+                                icon:       'eth',
+                                date:       '08/26/2018',
+                                date:       '2018.08.26',
+                                percent:    '-5.23%',
+                                trend:      'down',
+                            },
+                            {  
+                                name:       'Langganan odobe CC',
+                                icon:       'litecoin',
+                                date:       '08/26/2018',
+                                date:       '2018.08.26',
+                                percent:    '-5.23%',
+                                trend:      'down',
+                            },
+                            {  
+                                name:       'Hasil mining 3 mingguu',
+                                icon:       'bitcoin',
+                                date:       '08/26/2018',
+                                date:       '2018.08.26',
+                                percent:    '+5.23%',
+                                trend:      'up',
+                            },
+                        ],
+                    } %}
+                </div>
+            </div>                  
+        </main>
+        {% include "../block/common/popup/tpl.twig" with {
+            view:               "base", 
+      
+            prefix:             prefix.popup, 
+            mod:                "", 
+
+            img:                [path.img,"/popup/img.svg"].join(""),
+            text:               'You just earn <span>0.02343,00</span> BTC',
+            link:               'See history',
+            btn:                'Dismiss',
+        } %}
+        {% include "../block/common/script/script.twig"%}
+	</body>
+</html>

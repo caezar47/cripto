@@ -1,0 +1,42 @@
+{% if view == "base" %}
+	<div class="{{prefix}}block">
+		<div class="{{prefix}}header  {{content_prefix}}header">
+			<{{heading_tag}} class="{{prefix}}heading  {{content_prefix}}heading">{{heading}}</{{heading_tag}}>
+		</div>
+		<div class="{{prefix}}row">
+			{% for card in card_list %}
+			<div class="{{prefix}}card">
+				<div class="{{prefix}}card__icon">
+					{% include "../svg-sprite/svg.twig" with {icon:card.icon} %}
+				</div>
+				<div class="{{prefix}}card__info">
+					<div class="{{prefix}}card__header">
+						<p class="{{prefix}}card__val">{{card.val}}</p>
+						<p class="{{prefix}}card__name">{{card.name}}</p>
+					</div>
+					<div class="{{prefix}}card__footer  trend--{{card.trend}}">
+						<p class="{{prefix}}card__trend">
+							{% if card.trend == 'up' %}
+								<img src="{{path.img}}/wallet/trend-up.svg" class="img-responsive" alt="">
+								<img src="{{path.img}}/wallet/trend-up-hover.svg" class="img-responsive" alt="">
+							{% endif %}
+							{% if card.trend == 'down' %}
+								<img src="{{path.img}}/wallet/trend-down.svg" class="img-responsive" alt="">
+								<img src="{{path.img}}/wallet/trend-down-hover.svg" class="img-responsive" alt="">
+							{% endif %}
+
+						</p>
+						<p class="{{prefix}}card__percent">
+							{% include "../svg-sprite/svg.twig" with {icon:'trend'} %}
+							<span>{{card.percent}}</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			<a href="#" class="{{prefix}}add">
+				<span>+ Add Currency</span>
+			</a>
+		</div>
+	</div>
+{% endif %}

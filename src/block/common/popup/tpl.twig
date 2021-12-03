@@ -1,0 +1,17 @@
+{% if view == "base" %}
+	<div class="{{prefix}}block">
+		<div class="{{prefix}}img">
+			<img src="{{img}}" class="img-responsive" alt="">
+		</div>
+		<div class="{{prefix}}text">
+			{{text}}
+		</div>
+		<div class="{{prefix}}link">
+			<a href="#">{{link}}</a>
+		</div>
+		<p>
+			<button type="button" class="{{prefix}}btn">{{btn}}</button>
+		</p>
+		
+	</div>
+{% endif %}

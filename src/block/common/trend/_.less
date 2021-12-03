@@ -1,0 +1,145 @@
+.trend__{
+	&block{
+		margin-bottom: 10px;
+		.media-breakpoint-up(@md; {
+			margin-bottom: 0;
+		});
+	}
+	&row{
+		display: grid;
+		grid-gap: 5px 25px;
+		grid-template-columns: 100%;
+		.media-breakpoint-up(@md; {
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 8px 45px;
+		});
+		.media-breakpoint-up(@xl; {
+			grid-gap: 5px 25px;
+		});
+		.media-breakpoint-up(@xxl; {
+			grid-template-columns: repeat(3, 1fr);
+		});
+	}
+	&heading{
+	}
+	&card{
+		&{
+			padding: 17px 20px 16px;
+			.media-breakpoint-up(@md; {
+				padding: 15px 35px;
+			});
+			.media-breakpoint-up(@xl; {
+				padding: 15px 20px;
+			});
+		}
+		&__header{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 15px;
+			padding: 0 20px 0 14px;
+			.media-breakpoint-up(@md; {
+				padding: 0;
+				margin-bottom: 15px;
+			});
+			.media-breakpoint-up(@xl; {
+				margin-bottom: 13px;
+			});
+		}
+		&__convert{
+			display: flex;
+			align-items: center;
+			font-weight: 700;
+			text-transform: uppercase;
+			.heading3();
+			color: fadeout(@white, 80%);
+			margin-left: 8px;
+			.media-breakpoint-between(@md; @xl; {
+				margin-left: 18px;
+			});
+			&__btn{
+				.btn-clearfix();
+				width: 13px;
+				height: 13px;
+				color: #37346F;
+				margin: 0 15px;
+				&:hover{
+					color: @success;
+				}
+			}			
+		}
+		&__percent{
+			display: flex;
+			margin-top: 5px;
+			margin-left: 30px;
+			.font(0.611rem, 125%); // 11px/14px
+			svg{
+				width: 6px;
+				height: 6px;
+				margin: 2px 12px 0 0px;
+			}
+			.trend--up &{
+				color: #50E3C2;
+			}
+			.trend--down &{
+				color: #E3507A;
+				svg{
+					transform: rotate(90deg);
+				}
+			}
+			.wallet__card:hover &{
+				color: @white;
+			}
+			.media-breakpoint-up(@md; {
+				svg{
+					margin: 2px 7px 0 0px;
+				}
+			});
+			.media-breakpoint-between(@md; @xl; {
+				margin-right: 15px;
+			});
+		}
+		&__val{
+			.font(0.944rem, 125%); // 17px/22px
+			transition: @trs-site;
+			margin-left: 10px;
+			.wallet__card:hover &{
+				font-weight: 900;
+			}
+			.media-breakpoint-up(@md; {
+				margin-left: 0px;
+			});
+			.media-breakpoint-up(@xl; {
+				margin-left: 3px;
+			});
+		}
+		&__trend{
+			position: relative;
+			max-width: 185px;
+			margin: 0 auto;
+			img{
+			}
+			&:before{
+				content: '';
+				position: absolute;
+				z-index: 1;
+				width: 20px;
+				height: 20px;
+			    border-radius: 50%;
+			    background: red;
+			    right: -3px;
+    			top: -6px;
+				filter: blur(20px);
+				.trend__card:nth-child(3n+1) &{
+					background: linear-gradient(49.24deg, rgba(255, 98, 184, 0.0001) 16.29%, #FE33D1 69.16%);
+				}
+				.trend__card:nth-child(3n+2) &{
+					background: linear-gradient(49.24deg, rgba(110, 255, 97, 0.0001) 16.29%, #5AFF5C 69.16%);
+				}
+				.trend__card:nth-child(3n+3) &{
+					background: linear-gradient(49.24deg, rgba(255, 189, 61, 0.0001) 16.29%, #FFCE5A 69.16%);;
+				}
+			}
+		}
+	}
+}
