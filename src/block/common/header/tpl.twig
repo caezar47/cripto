@@ -12,11 +12,107 @@
 				<button type="button" class="{{prefix}}hamb" data-hamburger>
 					{% include "../svg-sprite/svg.twig" with {icon:'hamb'} %}
 				</button>
-				<div class="{{prefix}}notifi">
-					<a href="#" class="{{prefix}}notifi__badge">
+				<div class="{{prefix}}notifi" data-notifi>
+					<button data-notifi-btn type="button" class="{{prefix}}notifi__badge">
 						{% include "../svg-sprite/svg.twig" with {icon:'bell'} %}
 						<span>15</span>
-					</a>
+					</button>
+					<div class="{{prefix}}notifi__dropdown" data-notifi-dropdown>
+						<div class="{{prefix}}notifi__dropdown__inner">
+							<h3 class="{{prefix}}notifi__dropdown__heading">Notifications</h3>
+							{% set notifi = [
+								{
+									mod: 	[prefix,"notifi__card--read"].join(""),
+									img: 	[path.img,"/header/avatar-item1.jpg"].join(""),
+									name:	"Clifford Hale", 
+									label:	'Sent you a message',
+									time:	'2 hours ago',
+									text:	'Hallo bro anak wes piro saiki? wes kuliah urung?…',
+								},
+								{
+									mod: 	[prefix,"notifi__card--new"].join(""),
+									menu: 	'true',
+									img: 	[path.img,"/header/avatar-item2.jpg"].join(""),
+									name:	"Lottie Marsh", 
+									label:	'Sent you a coin',
+									time:	'3 hours ago',
+									text:	'Bro iki nggo tuku es anakmu yo, ojo dinggo judi neh!!',
+									walet:	'+380.234',
+									walet_name:	'LTC',
+								},
+								{
+									img: 	[path.img,"/header/avatar-item1.jpg"].join(""),
+									name:	"BTC", 
+									label:	'News',
+									time:	'3 hours ago',
+									text:	'Bitcoin baru saja menguat 5 poin kalau tidak salah lho',
+									trend:	'up',
+									trend_percent:	'+39.69%',
+								},
+								{
+									img: 	[path.img,"/header/avatar-item2.jpg"].join(""),
+									name:	"Lottie Marsh", 
+									label:	'Sent you a coin',
+									time:	'3 hours ago',
+									text:	'Bro iki nggo tuku es anakmu yo, ojo dinggo judi neh!!',
+								},
+							] %}
+						    {% for value in notifi %}
+							<div class="{{prefix}}notifi__card  {{value.mod}}">
+								{% if value.menu %}
+								<a href="#" class="{{prefix}}notifi__card__menu">{% include "../svg-sprite/svg.twig" with {icon:'menu'} %}</a>
+								{% endif %}
+								<div class="{{prefix}}notifi__card__img">
+									<img src="{{value.img}}" alt="{{value.name}}">
+								</div>
+								<div class="{{prefix}}notifi__card__group">
+									<div class="{{prefix}}notifi__card__header">
+										<p class="{{prefix}}notifi__card__name">{{value.name}}</p>
+										<p class="{{prefix}}notifi__card__label">{{value.label}}</p>
+									</div>
+									<div class="{{prefix}}notifi__card__text">
+										{{value.text}}
+									</div>
+									{% if value.walet %}
+									<div class="{{prefix}}notifi__card__walet">
+										<p class="{{prefix}}notifi__card__walet__val">
+											{{value.walet}}
+										</p>
+										<p class="{{prefix}}notifi__card__walet__name">
+											{{value.walet_name}}
+										</p>
+										<a href="#" class="{{prefix}}notifi__card__walet__label">Open my wallet</a>
+									</div>
+									{% endif %}
+									{% if value.trend %}
+									<div class="{{prefix}}notifi__card__trend  {{prefix}}notifi__card__trend--{{value.trend}}">
+										<p class="{{prefix}}notifi__card__trend__img">
+											{% if value.trend == 'up' %}
+												<img src="{{path.img}}/wallet/trend-up.svg" class="img-responsive" alt="">
+											{% endif %}
+											{% if value.trend == 'down' %}
+												<img src="{{path.img}}/wallet/trend-down.svg" class="img-responsive" alt="">
+											{% endif %}
+										</p>
+										<p class="{{prefix}}notifi__card__trend__percent">
+											{% include "../svg-sprite/svg.twig" with {icon:'trend'} %}
+											<span>{{value.trend_percent}}</span>
+										</p>
+										<p class="{{prefix}}notifi__card__trend__label">Open my wallet</p>
+									</div>
+									{% endif %}
+									<p class="{{prefix}}notifi__card__time">
+										{{value.time}}
+									</p>
+								</div>
+							</div>
+						    {% endfor %}
+
+							<div class="{{prefix}}notifi__dropdown__link">
+								<a href="#">See All</a>
+							</div>
+						</div>
+					</div>
 				</div>
 				<a href="#" class="{{prefix}}profile">
 					<div class="{{prefix}}profile__avatar">

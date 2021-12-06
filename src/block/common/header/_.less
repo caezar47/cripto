@@ -90,7 +90,9 @@
 		});
 	}
 	&notifi{
+		position: relative;
 		&__badge{
+			.btn-clearfix();
 			display: flex;
 			align-items: center;
 			color: @white;
@@ -109,6 +111,214 @@
 				width: 10px;
 				height: 12px;
 				margin-right: 5px;
+			}
+		}
+		&__dropdown{
+			position: absolute;  
+			padding: 27px 3px 17px;
+			top: 0%;
+			left: 0%;
+			transform: translateX(-65px);
+			width: 310px;
+			margin-top: 23px;
+			background: linear-gradient(210.96deg, rgba(40, 36, 88, 0.61) 0.01%, rgba(38, 35, 83, 0.7) 42.05%, rgba(62, 59, 115, 0) 104.81%);
+			filter: drop-shadow(0px 48px 69px rgba(23, 18, 43, 0.845335));
+			backdrop-filter: blur(20px);
+			border-radius: 10px;
+			visibility: hidden;
+			opacity: 0;
+			transition: 0.5s all;
+			.media-breakpoint-up(@md; {
+				max-height: initial;
+				padding: 27px 15px 17px;
+				width: 415px;
+				transform: translateX(15%);
+				right: 0;
+				left: initial;
+			});
+			.media-breakpoint-up(@xl; {
+				left: 50%;
+				right: initial;
+				transform: translateX(-53%);
+			});
+			&__inner{
+				padding: 0 13px;
+				max-height: 300px;
+				overflow: auto;
+				.scrollbar();
+				.media-breakpoint-up(@md; {
+					max-height: initial;
+					overflow: initial;
+				});
+			}
+			&__heading{
+				text-transform: uppercase;
+				letter-spacing: 0.02em;
+				color: #B1AFCD;
+				margin-bottom: 15px;
+			}
+			&__link{
+				margin-top: 15px;
+				text-align: center;
+				.font(0.667rem, 125%); // 12px/15px
+			}
+			&.dropdown--visible{
+				opacity: 1;
+				visibility: visible;
+				top: 100%; 
+				z-index: 10; 
+			}
+		}
+		&__card{
+			position: relative;
+			display: flex;
+			padding: 15px 13px;
+			margin-left: -13px;
+			margin-right: -13px;
+			.media-breakpoint-up(@md; {
+				padding: 15px 27px;
+				margin-left: -27px;
+				margin-right: -27px;
+			});
+			&__menu{
+				position: absolute;
+				z-index: 1;
+				top: 5px;
+				right: 0;
+				width: 32px;
+				height: 32px;
+				color: #59588D;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				svg{
+					width: 4px;
+					height: 18px;
+				}
+			}
+			&__img{
+				min-width: 38px;
+				width: 38px;
+				height: 38px;
+				border-radius: 50%;
+   				overflow: hidden;
+   				margin-right: 16px;
+				img{
+					.img-bg();
+				}
+			}
+			&__header{
+				display: flex;
+				align-items: center;
+				margin-bottom: 5px;
+			}
+			&__group{
+				flex: 1 1 0;
+				padding-top: 3px;
+			}
+			&__name{
+				font-weight: 900;
+				color: #B1AFCD;
+				.font(0.778rem, 125%); // 14px/18px
+				margin-right: 20px;
+			}
+			&__label{
+				color: #75749C;
+				.font(0.611rem, 125%); // 11px/14px
+			}
+			&__text{
+				color: #7D7CAF;
+				.font(0.667rem, 125%); // 12px/15px
+				margin-bottom: 10px;
+			}
+			&__time{
+				color: #59588D;
+				.font(0.611rem, 125%); // 11px/14px
+			}
+			&__walet{
+				display: flex;
+				align-items: center;
+				max-width: 91%;
+				.font(0.667rem, 125%); // 12px/15px
+				margin-bottom: 10px;
+				&__label{
+					margin-left: auto;
+					color: #70B2FF;
+					a&{
+						text-decoration: underline;
+						&:hover{
+							text-decoration: none;
+							color: @success;
+						}
+					}
+				}
+				&__val{
+					font-weight: 900;
+					color: #50E3C2;
+					margin-right: 13px;
+					.font(0.722rem, 125%); // 13px/16px
+				}
+				&__name{
+					color: fadeout(@white, 80%);
+					font-weight: 700;
+				}
+			}
+			&__trend{
+				display: flex;
+				align-items: center;
+				.font(0.722rem, 125%); // 13px/16px
+				margin-bottom: 10px;
+				&__img{
+					margin-right: 20px;
+				}
+				&__percent{
+					font-weight: 900;
+					svg{
+						width: 6px;
+						height: 6px;
+						margin-right: 10px;
+					}
+				}
+				&__label{
+					.font(0.667rem, 125%); // 12px/15px
+					margin-left: auto;
+					color: #70B2FF;
+					a&{
+						text-decoration: underline;
+						&:hover{
+							text-decoration: none;
+							color: @success;
+						}
+					}
+				}
+
+				&--up{
+					.header__notifi__card__trend__percent{
+						color: #50E3C2;
+					}
+				}
+				&--down{
+					.header__notifi__card__trend__percent{
+						color: #E3507A;
+						svg{
+							transform: rotate(90deg);
+						}
+					}
+				}
+			}
+
+			&--read{
+				.header__notifi__card{
+					&__name{
+						color: fadeout(#8786AB, 30%);
+					}
+					&__text{
+						color: #59588D;
+					}
+				}
+			}
+			&--new{
+				background: linear-gradient(224.09deg, rgba(26, 23, 62, 0.45) 0%, rgba(18, 16, 48, 0.49) 98.47%);
 			}
 		}
 	}

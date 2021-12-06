@@ -3,7 +3,7 @@
 		position: fixed;
 		z-index: 200;
 		bottom: 0px;
-		left: 310px;
+		left: 15px;
 		background: linear-gradient(241.25deg, rgba(41, 39, 85, 0.35) 4.4%, rgba(41, 39, 84, 0.78) 61.77%, rgba(27, 24, 66, 0.35) 119.94%);
 		box-shadow: 0px 51px 69px rgba(23, 18, 43, 0.585739);
 		backdrop-filter: blur(23px);
@@ -11,7 +11,7 @@
 		transform: translateY(100%);
 		border-radius: 10px;
 		height: 260px;
-		width: 413px;
+		width: 295px;
 		text-align: center;
 		padding: 5px 20px;
 		visibility: hidden;
@@ -20,10 +20,16 @@
 		&.popup--visible{
 			opacity: 1;
 			visibility: visible;
-			bottom: 78px;
+			bottom: 15px;
 			transform: translateY(0);
-
 		}
+		.media-breakpoint-up(@xl; {
+			left: 310px;
+			width: 413px;
+			&.popup--visible{
+				bottom: 78px;
+			}
+		});
 	}
 	&img{
 		margin: 0 0 25px;

@@ -97,7 +97,21 @@
 	clip: rect(0 0 0 0);
 }
 //
-.scrollbar(@w: 3px; @r: 2px; @t: linear-gradient(to bottom, fadeout(#59588D, 100%) 0%, fadeout(#59588D, 100%) 33%, fadeout(#59588D, 0%) 33%, fadeout(#59588D, 0%) 66%, fadeout(#59588D, 100%) 66%, fadeout(#59588D, 100%) 100%); @s: @danger){	
+.scrollbar(@w: 3px; @r: 2px; @t: linear-gradient(to left, fadeout(#59588D, 100%) 0%, fadeout(#59588D, 100%) 33%, fadeout(#59588D, 0%) 33%, fadeout(#59588D, 0%) 66%, fadeout(#59588D, 100%) 66%, fadeout(#59588D, 100%) 100%); @s: @danger){	
+	&::-webkit-scrollbar-track{
+		background: @t;
+	}
+	&::-webkit-scrollbar{
+		width: @w;
+		//height: @w;
+		background: @t;
+	}
+	&::-webkit-scrollbar-thumb{
+		background-color: @s;
+		border-radius: @r;
+	}
+}
+.scrollbar_x(@w: 3px; @r: 2px; @t: linear-gradient(to bottom, fadeout(#59588D, 100%) 0%, fadeout(#59588D, 100%) 33%, fadeout(#59588D, 0%) 33%, fadeout(#59588D, 0%) 66%, fadeout(#59588D, 100%) 66%, fadeout(#59588D, 100%) 100%); @s: @danger){	
 	&::-webkit-scrollbar-track{
 		background: @t;
 	}
