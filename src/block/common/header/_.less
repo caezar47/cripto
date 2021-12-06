@@ -20,6 +20,9 @@
 	}
 	&col{
 		&__left{
+			.media-breakpoint-up(@md; {
+				order:1;
+			});
 
 		}
 		&__right{
@@ -32,8 +35,8 @@
 				gap: 20px;
 			}
 			.media-breakpoint-up(@md; {
-				flex: 1;
-				order: initial;
+				flex: 1 1 auto;
+				order: 2;
 				justify-content: flex-end;
 				.flex--gap &{
 					gap: 25px;

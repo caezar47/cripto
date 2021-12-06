@@ -18,6 +18,24 @@
 		});
 		.media-breakpoint-up(@xxl; {
 			grid-template-columns: repeat(3, 1fr);
+
+			display: -ms-grid;
+			-ms-grid-columns: 30.85% 25px 30.85% 25px 30.85%;
+			& > *{
+				&:nth-child(1){
+					-ms-grid-column: 1;
+				}
+				&:nth-child(2){
+					-ms-grid-column: 3;
+				}
+				&:nth-child(3){
+					-ms-grid-column: 5;
+				}
+				&:nth-child(4){
+					-ms-grid-column: 1;
+					-ms-grid-row: 1;
+				}
+			}
 		});
 	}
 	&heading{
