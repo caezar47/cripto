@@ -4,15 +4,9 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 <script src="{{path.js}}/jquery-3.2.1.min.js" ></script>
-{% if map == "view" %}
-<script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
-{% endif %}
-<script src="{{path.js}}/document-ready.js" ></script>
+<script src="{{path.js}}/script.js" ></script>
 <script src="{{path.js}}/svg4everybody.min.js" ></script>
 <script>
 svg4everybody();
 document.createElement("picture");
-{% if wow == "view" %}
-new WOW().init();
-{% endif %}
 </script> 
