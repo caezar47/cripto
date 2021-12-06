@@ -19,9 +19,9 @@
 			grid-template-columns: repeat(3, 1fr);
 		});
 		.media-breakpoint-up(@xl; {
-			grid-template-columns: repeat(5, 1fr);
+			grid-template-columns: repeat(4, 1fr);
 			display: -ms-grid;
-			-ms-grid-columns: 18.45% 20px 18.45% 20px 18.45% 20px 18.45% 20px 18.45%;
+			-ms-grid-columns: 23.2% 20px 23.2% 20px 23.2% 20px 23.2%;
 			& > *{
 				&:nth-child(1){
 					-ms-grid-column: 1;
@@ -36,6 +36,10 @@
 					-ms-grid-column: 7;
 				}
 			}
+		});
+		.media-breakpoint-up(@xxl; {			
+			grid-template-columns: repeat(5, 1fr);
+			-ms-grid-columns: 18.45% 20px 18.45% 20px 18.45% 20px 18.45% 20px 18.45%;
 		});
 	}
 	&heading{
