@@ -22,6 +22,7 @@
 							<h3 class="{{prefix}}notifi__dropdown__heading">Notifications</h3>
 							{% set notifi = [
 								{
+									mod: 	'',
 									mod: 	[prefix,"notifi__card--read"].join(""),
 									img: 	[path.img,"/header/avatar-item1.jpg"].join(""),
 									name:	"Clifford Hale", 
@@ -30,8 +31,6 @@
 									text:	'Hallo bro anak wes piro saiki? wes kuliah urung?…',
 								},
 								{
-									mod: 	[prefix,"notifi__card--new"].join(""),
-									menu: 	'true',
 									img: 	[path.img,"/header/avatar-item2.jpg"].join(""),
 									name:	"Lottie Marsh", 
 									label:	'Sent you a coin',
@@ -59,9 +58,7 @@
 							] %}
 						    {% for value in notifi %}
 							<div class="{{prefix}}notifi__card  {{value.mod}}">
-								{% if value.menu %}
 								<a href="#" class="{{prefix}}notifi__card__menu">{% include "../svg-sprite/svg.twig" with {icon:'menu'} %}</a>
-								{% endif %}
 								<div class="{{prefix}}notifi__card__img">
 									<img src="{{value.img}}" alt="{{value.name}}">
 								</div>

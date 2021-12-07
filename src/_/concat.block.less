@@ -86,6 +86,7 @@
 	&img{
 		display: block;
 		min-width: 715px;
+		max-width: 950px;
 	}
 }
 .container {
@@ -135,7 +136,7 @@
 		&__right{
 			display: flex;
 			align-items: center;
-			flex: 1 1 auto;
+			flex: 1 1 100%;
 			order: -1;
 			justify-content: space-between;
 			.flex--gap &{
@@ -252,7 +253,7 @@
 				transform: translateX(-53%);
 			});
 			&__inner{
-				padding: 0 13px;
+				padding: 0 12px;
 				max-height: 300px;
 				overflow: auto;
 				.scrollbar();
@@ -281,10 +282,34 @@
 		}
 		&__card{
 			position: relative;
+			z-index: 1;
 			display: flex;
 			padding: 15px 13px;
 			margin-left: -13px;
 			margin-right: -13px;
+			transition: @trs-site;
+			&::before{
+				content: '';
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: linear-gradient(224.09deg, rgba(26, 23, 62, 0.45) 0%, rgba(18, 16, 48, 0.49) 98.47%);
+				opacity: 0;
+				transition: @trs-site;
+			}
+			&:hover{
+				&::before{
+					opacity: 1;
+				}
+				.header__notifi__card{
+					&__menu{
+						opacity: 1;
+					}
+				}
+			}
 			.media-breakpoint-up(@md; {
 				padding: 15px 27px;
 				margin-left: -27px;
@@ -301,6 +326,8 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				transition: @trs-site;
+				opacity: 0;
 				svg{
 					width: 4px;
 					height: 18px;
@@ -428,7 +455,7 @@
 				}
 			}
 			&--new{
-				background: linear-gradient(224.09deg, rgba(26, 23, 62, 0.45) 0%, rgba(18, 16, 48, 0.49) 98.47%);
+				
 			}
 		}
 	}
@@ -1031,6 +1058,7 @@
 			-ms-grid-columns: 30.85% 25px 30.85% 25px 30.85%;
 			& > *{
 				&:nth-child(3){
+					-ms-grid-row: 1;
 					-ms-grid-column: 5;
 				}
 				&:nth-child(4){
@@ -1248,9 +1276,9 @@
 				left: -15px;
 				background: linear-gradient(113.91deg, #40DDFF 0%, rgba(11, 152, 197, 0.0001) 82.9%);
 				opacity: 0.5;
-				filter: url('@{url-path-img}/walet/filter.svg#blur');
-				-webkit-filter: blur(90px);
-				-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius='3')";
+				//filter: url('@{url-path-img}/walet/filter.svg#blur');
+				filter: blur(90px);
+				//-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius='3')";
 				border-radius: 5px;
 				opacity: 0;
 				transition: @trs-site;
