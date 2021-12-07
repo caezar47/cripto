@@ -7,13 +7,14 @@
 		left: 0;
 		bottom: 0;
 		max-width: 300px;
-		background: linear-gradient(180deg, rgba(38, 34, 80, 0.65) 0%, rgba(27, 25, 66, 0.85) 57.44%, #17163B 100%);
+		background: linear-gradient(180deg, rgb(38, 34, 80) 0%, rgba(27, 25, 66) 57.44%, #17163B 100%);
 		transition: @trs-site;
 		transform: translateX(0%);
 		.navbar--open &{
 			transform: translateX(-100%);
 		}
 		.media-breakpoint-up(@xl; {
+			background: linear-gradient(180deg, rgba(38, 34, 80, 0.65) 0%, rgba(27, 25, 66, 0.85) 57.44%, #17163B 100%);
 			transform: translateX(-100%);
 			.navbar--open &{
 				transform: translateX(0%);

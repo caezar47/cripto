@@ -254,12 +254,10 @@
 			});
 			&__inner{
 				padding: 0 12px;
-				max-height: 300px;
-				overflow: auto;
 				.scrollbar();
-				.media-breakpoint-up(@md; {
-					max-height: initial;
-					overflow: initial;
+				.media-breakpoint-down(@md; {
+					max-height: 300px;
+					overflow: auto;
 				});
 			}
 			&__heading{
@@ -750,6 +748,73 @@
 		}
 	}
 }
+.popup__{
+	&block{
+		position: fixed;
+		z-index: 200;
+		bottom: 0px;
+		left: 15px;
+		background: linear-gradient(241.25deg, rgba(41, 39, 85, 0.35) 4.4%, rgba(41, 39, 84, 0.78) 61.77%, rgba(27, 24, 66, 0.35) 119.94%);
+		box-shadow: 0px 51px 69px rgba(23, 18, 43, 0.585739);
+		backdrop-filter: blur(23px);
+
+		transform: translateY(100%);
+		border-radius: 10px;
+		height: 260px;
+		width: 295px;
+		text-align: center;
+		padding: 5px 20px;
+		visibility: hidden;
+		opacity: 1;
+		transition: 0.5s all;
+		&.popup--visible{
+			opacity: 1;
+			visibility: visible;
+			bottom: 15px;
+			transform: translateY(0);
+		}
+		.media-breakpoint-up(@xl; {
+			left: 310px;
+			width: 413px;
+			&.popup--visible{
+				bottom: 78px;
+			}
+		});
+	}
+	&img{
+		margin: 0 0 25px;
+		img{
+			margin: 0 auto;
+		}
+	}
+	&text{
+		color: #6968A6;
+		.font(0.778rem,125%);
+		margin-bottom: 10px;
+		span{
+			font-weight: 900;
+			padding: 0 6px 0 10px;
+			color: #50E3C2;
+		}
+	}
+	&link{
+		.font(0.667rem, 130%); // 12px/15px
+		margin-bottom: 35px;
+	}
+	&btn{
+		.btn-clearfix();
+		.font(0.722rem, 125%); // 13px/16px
+		color: #9796CF;
+		background: #343261;
+		border-radius: 10px;
+		padding: 8px 20px;
+		&:hover{
+			background-color: @success;
+			color: @white;
+		}
+	}
+
+}
 .navbar__{ 
 	&block{
 		position: fixed;
@@ -759,13 +824,14 @@
 		left: 0;
 		bottom: 0;
 		max-width: 300px;
-		background: linear-gradient(180deg, rgba(38, 34, 80, 0.65) 0%, rgba(27, 25, 66, 0.85) 57.44%, #17163B 100%);
+		background: linear-gradient(180deg, rgb(38, 34, 80) 0%, rgba(27, 25, 66) 57.44%, #17163B 100%);
 		transition: @trs-site;
 		transform: translateX(0%);
 		.navbar--open &{
 			transform: translateX(-100%);
 		}
 		.media-breakpoint-up(@xl; {
+			background: linear-gradient(180deg, rgba(38, 34, 80, 0.65) 0%, rgba(27, 25, 66, 0.85) 57.44%, #17163B 100%);
 			transform: translateX(-100%);
 			.navbar--open &{
 				transform: translateX(0%);
@@ -885,73 +951,6 @@
 			color: @success;
 		}
 	}
-}
-.popup__{
-	&block{
-		position: fixed;
-		z-index: 200;
-		bottom: 0px;
-		left: 15px;
-		background: linear-gradient(241.25deg, rgba(41, 39, 85, 0.35) 4.4%, rgba(41, 39, 84, 0.78) 61.77%, rgba(27, 24, 66, 0.35) 119.94%);
-		box-shadow: 0px 51px 69px rgba(23, 18, 43, 0.585739);
-		backdrop-filter: blur(23px);
-
-		transform: translateY(100%);
-		border-radius: 10px;
-		height: 260px;
-		width: 295px;
-		text-align: center;
-		padding: 5px 20px;
-		visibility: hidden;
-		opacity: 1;
-		transition: 0.5s all;
-		&.popup--visible{
-			opacity: 1;
-			visibility: visible;
-			bottom: 15px;
-			transform: translateY(0);
-		}
-		.media-breakpoint-up(@xl; {
-			left: 310px;
-			width: 413px;
-			&.popup--visible{
-				bottom: 78px;
-			}
-		});
-	}
-	&img{
-		margin: 0 0 25px;
-		img{
-			margin: 0 auto;
-		}
-	}
-	&text{
-		color: #6968A6;
-		.font(0.778rem,125%);
-		margin-bottom: 10px;
-		span{
-			font-weight: 900;
-			padding: 0 6px 0 10px;
-			color: #50E3C2;
-		}
-	}
-	&link{
-		.font(0.667rem, 130%); // 12px/15px
-		margin-bottom: 35px;
-	}
-	&btn{
-		.btn-clearfix();
-		.font(0.722rem, 125%); // 13px/16px
-		color: #9796CF;
-		background: #343261;
-		border-radius: 10px;
-		padding: 8px 20px;
-		&:hover{
-			background-color: @success;
-			color: @white;
-		}
-	}
-
 }
 .profile__{
 	&avatar{
@@ -1266,7 +1265,7 @@
 				opacity: 0;
 				transition: @trs-site;
 			}
-			&::after{
+			/*&::after{
 				content: '';
 				position: absolute;
 				z-index: -1;
@@ -1274,22 +1273,23 @@
 				right: 25px;
 				bottom: -5px;
 				left: -15px;
-				background: linear-gradient(113.91deg, #40DDFF 0%, rgba(11, 152, 197, 0.0001) 82.9%);
+				//background: linear-gradient(113.91deg, #40DDFF 0%, rgba(11, 152, 197, 0.0001) 82.9%);
 				opacity: 0.5;
 				//filter: url('@{url-path-img}/walet/filter.svg#blur');
-				filter: blur(90px);
+				//filter: blur(90px);
 				//-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius='3')";
 				border-radius: 5px;
 				opacity: 0;
 				transition: @trs-site;
-			}
+			}*/
 			&:hover{
 				border-color: fadeout(@info, 100%);
+				box-shadow: -25px -25px 90px 20px fadeout(#40ddff, 80%);
 				&:before{
 					opacity: 1;
 				}
 				&:after{
-					opacity: 1;
+					//opacity: 1;
 				}
 			}
 			.media-breakpoint-up(@xl; {

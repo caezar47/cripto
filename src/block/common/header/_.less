@@ -146,12 +146,10 @@
 			});
 			&__inner{
 				padding: 0 12px;
-				max-height: 300px;
-				overflow: auto;
 				.scrollbar();
-				.media-breakpoint-up(@md; {
-					max-height: initial;
-					overflow: initial;
+				.media-breakpoint-down(@md; {
+					max-height: 300px;
+					overflow: auto;
 				});
 			}
 			&__heading{
